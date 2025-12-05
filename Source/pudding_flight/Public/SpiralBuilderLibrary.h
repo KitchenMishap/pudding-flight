@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2024-2025 Kitchen Mishap. All rights reserved.
 
 #pragma once
 
@@ -7,11 +7,15 @@
 #include "SpiralBuilderLibrary.generated.h"
 
 /**
- * 
+ * A library that builds spirals and parts of spirals
  */
-UCLASS()
+UCLASS(BlueprintType)
 class PUDDING_FLIGHT_API USpiralBuilderLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
-	
+
+public:
+	UFUNCTION(BlueprintCallable, Category = Spiral)
+	static TArray<FTransform> BuildRenderedJson(
+		FVector meshOffset, float meshDivider, FString JsonPath, TArray<FVector>& colours, TArray<float>& opacities, TArray<FTransform>& hism2Transforms, int maxAssets = 1000000);
 };
